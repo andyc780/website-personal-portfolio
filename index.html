@@ -10,7 +10,7 @@
             color:#ababab;
             scroll-behavior: smooth;
             cursor: none;
-            /* overflow: hidden; */
+            overflow: hidden;
         }
         body{
             background-color: #151515;
@@ -28,27 +28,64 @@
             padding:20px;
         }
         #cursor-circle {
-        /* making sure that circle can be anywhere on the webpage so absolute positioning :thumbs up: */
-        position: absolute;
-        /* same width and height to create a square and then turn it into a circle later on. */
-        width: 13rem;
-        height: 13rem;
-        border-radius: 50%; /* smooth the square into a circle */
-        background: rgb(122,154,240);
-        background: radial-gradient(circle, rgba(122,154,240,0.25) 0%, rgba(205,122,240,0.1) 40%, rgba(23,23,23,0) 60%);
-        transform: translate(-50%, -50%); /* center this stupid circle to the middle of the cursor because it will be ugly without it. subtracting width and height to make it centered. */
-        z-index: 2;
-    }
+            /* making sure that circle can be anywhere on the webpage so absolute positioning :thumbs up: */
+            position: absolute;
+            /* same width and height to create a square and then turn it into a circle later on. */
+            width: 13rem;
+            height: 13rem;
+            border-radius: 50%; /* smooth the square into a circle */
+            background: rgb(122,154,240);
+            background: radial-gradient(circle, rgba(122,154,240,0.25) 0%, rgba(205,122,240,0.1) 40%, rgba(23,23,23,0) 60%);
+            transform: translate(-50%, -50%); /* center this stupid circle to the middle of the cursor because it will be ugly without it. subtracting width and height to make it centered. */
+            z-index: 2;
+        }
     #deco-circle-1 {
-        position: absolute;
-        width:10rem;
-        height:10rem;
+        position: fixed;
+        width:40rem;
+        height:40rem;
         border-radius:50%;
-        top:15%;
-        left:15%;
-        background: rgb(122,154,240);
+        top:-10%;
+        left:-10%;
+        background: #aeb5ee;
+        background: radial-gradient(circle, rgba(174, 181, 238, 0.2) 0%, rgba(135, 160, 215, 0.1) 40%, rgba(92, 137, 189, 0) 60%);
+    }
+    #deco-circle-2 {
+        position: fixed;
+        top:45%;
+        left:70%;
+        width:40rem;
+        height:40rem;
+        border-radius:50%;
+        background: #87d79e;
+        background: radial-gradient(circle, rgba(135, 215, 158, 0.2) 0%, rgba(113, 202, 127, 0.1) 40%, rgba(78, 204, 86, 0) 60%);
+    }
+    .star-specks{
+        position: fixed;
+        z-index:-2;
+        width: 10px;
+        height:10px;
+        background-color: gold;
+        opacity: 0;
+        border-radius:50%;
 
     }
+    .star {
+        position: fixed;
+        z-index: -2;
+            width: 20px;
+            opacity: 0;
+            aspect-ratio: 1;
+            background: #F8CA00;
+            clip-path: polygon(50% 0,
+                calc(50%*(1 + sin(.4turn))) calc(50%*(1 - cos(.4turn))),
+                calc(50%*(1 - sin(.2turn))) calc(50%*(1 - cos(.2turn))),
+                calc(50%*(1 + sin(.2turn))) calc(50%*(1 - cos(.2turn))),
+                calc(50%*(1 - sin(.4turn))) calc(50%*(1 - cos(.4turn))) 
+    ); 
+    /* or more simple
+    clip-path: polygon(50% 0,79% 90%,2% 35%,98% 35%,21% 90%); 
+    */
+}
     </style>
     <title>Andy's Portfolio</title>
 </head>
@@ -62,4 +99,4 @@
     </div>
 </body>
 <script src ="script.js"></script>
-</html>
+</html>                     
