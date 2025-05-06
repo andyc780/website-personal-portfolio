@@ -1,6 +1,36 @@
-// executes the following code when the DOM is fully loaded to prevent any 
+
+// executes the following code when the DOM is fully loaded to prevent any
 document.addEventListener("DOMContentLoaded", function() {
-    generateStars();
+    // cool fade in animations for the website when the user loads it in.
+    setTimeout(() => {
+        const getBackground = document.querySelector('body');
+        getBackground.style.backgroundColor = '#151515'; // change the background color to black
+    }, 1000);
+    // display the main introduction webpage to the user after background is faded in.
+    setTimeout(() => {
+        const getBody = document.querySelector('body');
+        getBody.style.transition = 'opacity 2s ease-in-out'; 
+        getBody.style.opacity = '1'; 
+        generateStars();
+    },3000)
+    // displays the message after a few moments and applies a nice pulsing effect to the text for extra detail.
+    setTimeout(() => {
+        const getInfoMessage = document.querySelector(".message");
+        getInfoMessage.style.transition = 'opacity 1.5s ease-in-out'; 
+        getInfoMessage.style.opacity = '1'; 
+        setInterval(() => {
+            getInfoMessage.style.transition = 'color 1.5s ease';
+            setTimeout(() => {
+                getInfoMessage.style.color = '#bcbcbc'; // pulse to white
+                setTimeout(() => {
+                    getInfoMessage.style.color = '#787878'; // pulse back to gray
+                }, 1000);
+            }, 1000);
+
+        }, 2000); // interval (note)
+
+    }, 5500); // main timeout (note)
+   
     console.log("DOM Loaded Successfully.");
     console.log("Window Height: " + window.innerHeight);
     console.log("Window Width: " + window.innerWidth);
@@ -9,6 +39,7 @@ document.addEventListener("DOMContentLoaded", function() {
     //     console.log(rand);
     // }
 });
+
 
 document.addEventListener('mousemove', function (cursor) {
     // getting the circle div element
@@ -19,28 +50,46 @@ document.addEventListener('mousemove', function (cursor) {
     const positionScrollY = window.scrollY;
     updatePosition(positionX, positionY, positionScrollY)
 
-    
+
+   
     // using left and right positioning because of the position absolute from the circle ID from the css and now we got cool mouse effects
    function updatePosition(positionX, positionY, positionScrollY){
         circle.style.left = `${positionX}px`;
         circle.style.top = `${positionY + positionScrollY}px`;
     }
 });
+// this needs to be fixed as all the document items are being hidden before the navigation information is gathered.
+let clickCount = 0;
 document.addEventListener('dblclick', function () {
-    const allElements = document.querySelectorAll('body *'); // Select all elements in the body
-    allElements.forEach(element => {
-        element.style.transition = 'opacity 0.5s ease-out'; // Smooth fade-out effect
-        element.style.opacity = '0'; // Fade out
+    const mainElement = document.querySelector('main'); // Select the main element
+    mainElement.style.transition = 'opacity 0.5s ease-out'; // Smooth fade-out effect
+    mainElement.style.opacity = '0'; // Fade out
+    setTimeout(() => {
+        mainElement.style.display = 'none'; // Hide the element after fade-out
+    }, 500); 
+
+    if(clickCount == 0){
         setTimeout(() => {
-            element.style.display = 'none'; // Hide the element after fade-out
-        }, 500); // Match the timeout with the transition duration
-    });
+            const getNavigation = document.querySelector('nav');
+            getNavigation.style.display = 'block'; // Ensure the element is visible for the transition
+            getNavigation.style.transition = 'opacity 0.5s ease-out';
+            setTimeout(() => {
+                getNavigation.style.opacity = '1'; // Apply the fade-in effect
+            }, 10); // Slight delay to allow the transition to take effect
+            clickCount++;
+        }, 1000);
+    }
+
+
 });
 
-let count = 0;
-let maxStars = 100;
+
+// declaration for the variables to be used for the stars later on in the function.
 function generateStars(){
+    let count = 0;
+    let maxStars = 100;
     const getDocumentBody = document.querySelector('body');
+
 
     const starLoop = setInterval(() => {
         const createStar = document.createElement('div');
@@ -59,6 +108,7 @@ function generateStars(){
         // add the star to the document body.
         getDocumentBody.appendChild(createStar);
 
+
         count++;
         if(count > maxStars){
             clearInterval(starLoop);    
@@ -66,18 +116,19 @@ function generateStars(){
     }, 10);
     setTimeout(() => {
         animateStars();
-    }, 3000)
+    },1000);
 }
 function animateStars(){
-    let velocitySpeed = 0.15; // speed of the stars, can be adjusted to make them faster or slower with this value.
+    let velocitySpeed = 0.35; // speed of the stars, can be adjusted to make them faster or slower with this value.
     // get all stars in the document
     const getStars = document.querySelectorAll('.star-specks');
     // iterates through each star using a loop
     getStars.forEach(star => {
         // Random velocity for each star (either a positve or negative velocity) in both X and Y directions.
         // a range from -1 to +1 will be chosen for the base velcoity speed and ensuring that the stars can move in any direction.
-        let velocityX = Math.random() * 2 - 1; 
-        let velocityY = Math.random() * 2 - 1; 
+        let velocityX = Math.random() * 2 - 1;
+        let velocityY = Math.random() * 2 - 1;
+
 
         // nesting a function to move the stars.
         function moveStar() {
@@ -86,9 +137,11 @@ function animateStars(){
             let currentX = parseFloat(star.style.left);
             let currentY = parseFloat(star.style.top);
 
+
             // update the positions with velocities
             let newX = currentX + (velocityX * velocitySpeed);
             let newY = currentY + (velocityY * velocitySpeed);
+
 
             // Check for collisions with window edges. basicallty checking if the stars are going to go off screen
             if (newX <= 0 || newX >= window.innerWidth) {
@@ -98,12 +151,15 @@ function animateStars(){
                 velocityY *= -1; // Reverse Y direction to 'bounce' off the edge
             }
 
+
             // Apply new position using css
             star.style.left = `${newX}px`;
             star.style.top = `${newY}px`;
 
+
             requestAnimationFrame(moveStar); // Continue animation infinitely
         }
+
 
         moveStar(); // Start animation for this star
     });
