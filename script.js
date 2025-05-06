@@ -1,6 +1,16 @@
 // executes the following code when the DOM is fully loaded to prevent any 
 document.addEventListener("DOMContentLoaded", function() {
-    generateStars();
+    // cool fade in animations for the webiste when the user loads it in.
+    setTimeout(() => {
+        const getBackground = document.querySelector('body');
+        getBackground.style.backgroundColor = '#151515'; // change the background color to black
+    }, 1000);
+    setTimeout(() => {
+        const getBody = document.querySelector('body');
+        getBody.style.transition = 'opacity 2s ease-in-out'; // Smooth transition for opacity
+        getBody.style.opacity = '1'; // Start with hidden body
+        generateStars();
+    },3000)
     console.log("DOM Loaded Successfully.");
     console.log("Window Height: " + window.innerHeight);
     console.log("Window Width: " + window.innerWidth);
@@ -69,7 +79,7 @@ function generateStars(){
     }, 3000)
 }
 function animateStars(){
-    let velocitySpeed = 0.15; // speed of the stars, can be adjusted to make them faster or slower with this value.
+    let velocitySpeed = 0.2; // speed of the stars, can be adjusted to make them faster or slower with this value.
     // get all stars in the document
     const getStars = document.querySelectorAll('.star-specks');
     // iterates through each star using a loop
