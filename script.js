@@ -1,5 +1,5 @@
-
 // executes the following code when the DOM is fully loaded to prevent any
+let clickable = false;
 document.addEventListener("DOMContentLoaded", function() {
     // cool fade in animations for the website when the user loads it in.
     setTimeout(() => {
@@ -28,16 +28,12 @@ document.addEventListener("DOMContentLoaded", function() {
             }, 1000);
 
         }, 2000); // interval (note)
-
+        clickable = true; // set the clickable variable to true so that the user can click on the screen.
     }, 5500); // main timeout (note)
    
     console.log("DOM Loaded Successfully.");
     console.log("Window Height: " + window.innerHeight);
     console.log("Window Width: " + window.innerWidth);
-    // for(let i = 0; i < 1000; i++){
-    //     let rand = Math.round(Math.random() * 1) + 1; // random number between 1 and 2
-    //     console.log(rand);
-    // }
 });
 
 
@@ -49,35 +45,38 @@ document.addEventListener('mousemove', function (cursor) {
     const positionY = cursor.clientY;
     const positionScrollY = window.scrollY;
     updatePosition(positionX, positionY, positionScrollY)
-
-
-   
     // using left and right positioning because of the position absolute from the circle ID from the css and now we got cool mouse effects
    function updatePosition(positionX, positionY, positionScrollY){
         circle.style.left = `${positionX}px`;
         circle.style.top = `${positionY + positionScrollY}px`;
     }
 });
-// this needs to be fixed as all the document items are being hidden before the navigation information is gathered.
+
 let clickCount = 0;
 document.addEventListener('dblclick', function () {
-    const mainElement = document.querySelector('main'); // Select the main element
-    mainElement.style.transition = 'opacity 0.5s ease-out'; // Smooth fade-out effect
-    mainElement.style.opacity = '0'; // Fade out
-    setTimeout(() => {
-        mainElement.style.display = 'none'; // Hide the element after fade-out
-    }, 500); 
+    if(clickCount == 0 && clickable == true){
+        const mainElement = document.querySelector('main'); // select the main element
+        const getCursor = document.getElementById('cursor-circle'); // get circle cursor
+        const getNavigation = document.querySelector('nav'); // get nav bar
+        getNavigation.appendChild(getCursor); // append the cursor to the navigation bar before removing it so it can be tracked still
 
-    if(clickCount == 0){
+        mainElement.style.transition = 'opacity 0.5s ease-out'; // Smooth fade-out effect
+        mainElement.style.opacity = '0'; // Fade out
+        fadeStars();
+        setTimeout(() => {
+            mainElement.style.display = 'none'; // Hide the element after fade-out
+        }, 500); 
+
         setTimeout(() => {
             const getNavigation = document.querySelector('nav');
             getNavigation.style.display = 'block'; // Ensure the element is visible for the transition
-            getNavigation.style.transition = 'opacity 0.5s ease-out';
+            getNavigation.style.transition = 'opacity 2s ease-out';
             setTimeout(() => {
                 getNavigation.style.opacity = '1'; // Apply the fade-in effect
             }, 10); // Slight delay to allow the transition to take effect
+            generateStars();
             clickCount++;
-        }, 1000);
+        }, 2000);
     }
 
 
@@ -89,7 +88,6 @@ function generateStars(){
     let count = 0;
     let maxStars = 100;
     const getDocumentBody = document.querySelector('body');
-
 
     const starLoop = setInterval(() => {
         const createStar = document.createElement('div');
@@ -163,5 +161,15 @@ function animateStars(){
 
         moveStar(); // Start animation for this star
     });
-   
 }
+function fadeStars(){
+     const getStars = document.querySelectorAll('.star-specks');
+     getStars.forEach(star => {
+         star.style.transition = 'opacity 0.5s ease-in-out';
+         star.style.opacity = '0';
+         setTimeout(() => {
+             star.remove();
+         }, 500);
+     });
+}
+
