@@ -96,8 +96,6 @@
             background-color: gold;
             opacity: 0;
             border-radius:50%;
-
-
         }
         .star { /* taken from online to use but not sure if its in the final product */
             position: fixed;
@@ -154,35 +152,42 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            background-color: #1e1e1e;
+            /* background-color: #1e1e1e;
             border: 4px solid #2e2e2e;
-            border-radius:1rem;
+            border-radius:1rem; */
             width: auto;
             height:auto;
             padding:30px;
             z-index: 2;
         }
-        .navigation-items > a{
+        .navigation-items > button{
             display: flex;
             flex-direction: column;
             text-align: center;
             text-decoration: transparent;
             margin:10px;
             font-size:1.5rem;
+            background-color: #1e1e1e;
+            border: 4px solid #2e2e2e;
+            border-radius:1rem;
             color: #aeb5ee;
             font-weight:500;
-            transition: text-decoration 1.5s ease, color 0.5s ease, scale 0.5s ease;
+            margin:20px;
+            padding:20px;
+            transition: text-decoration 1.5s ease, background 0.5s ease, color 0.5s ease, scale 0.5s ease;
+            width:370px;
+            height:auto;
         }
-        .navigation-items > a:hover{
+        .navigation-items > button:hover{
             color: #7d89e4;
             text-decoration: underline;
             scale:1.05;
+            background: #2a2a2a;
         }
         nav{
             display: none;
             opacity: 0;
         }
-
     </style>
     <title>Andy's Portfolio</title>
 </head>
@@ -203,14 +208,13 @@
         <div id="deco-circle-4"></div>
         <div class="navigation-section">
             <div class="navigation-items">
-                <a href="#">About</a>
-                <a href="#">Projects</a>    
-                <a href="#">Contact Information</a>
-                <a href="#">Resume</a>
+                <button onclick = "displayNewSection('about')"> About </button>
+                <button onclick ="displayNewSection('projects')"> Projects </button>
+                <button onclick ="displayNewSection('contact')"> Contact Information </button>
+                <button onclick = "displayResume()"> Resume </button>
             </div>
         </div>
     </nav>
 </body>
 <script src ="script.js"></script>
 </html>                    
-

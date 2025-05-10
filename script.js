@@ -6,18 +6,18 @@ document.addEventListener("DOMContentLoaded", function() {
         const getBackground = document.querySelector('body');
         getBackground.style.backgroundColor = '#151515'; // change the background color to black
     }, 1000);
-    // display the main introduction webpage to the user after background is faded in.
+    // display the main introduction webpage to the user after the background is faded in.
     setTimeout(() => {
         const getBody = document.querySelector('body');
-        getBody.style.transition = 'opacity 2s ease-in-out'; 
-        getBody.style.opacity = '1'; 
+        getBody.style.transition = 'opacity 2s ease-in-out';
+        getBody.style.opacity = '1';
         generateStars();
     },3000)
     // displays the message after a few moments and applies a nice pulsing effect to the text for extra detail.
     setTimeout(() => {
         const getInfoMessage = document.querySelector(".message");
-        getInfoMessage.style.transition = 'opacity 1.5s ease-in-out'; 
-        getInfoMessage.style.opacity = '1'; 
+        getInfoMessage.style.transition = 'opacity 1.5s ease-in-out';
+        getInfoMessage.style.opacity = '1';
         setInterval(() => {
             getInfoMessage.style.transition = 'color 1.5s ease';
             setTimeout(() => {
@@ -27,15 +27,16 @@ document.addEventListener("DOMContentLoaded", function() {
                 }, 1000);
             }, 1000);
 
+
         }, 2000); // interval (note)
-        clickable = true; // set the clickable variable to true so that the user can click on the screen.
     }, 5500); // main timeout (note)
-   
+    setTimeout(() => {
+        clickable = true;
+    },6000)
     console.log("DOM Loaded Successfully.");
     console.log("Window Height: " + window.innerHeight);
     console.log("Window Width: " + window.innerWidth);
 });
-
 
 document.addEventListener('mousemove', function (cursor) {
     // getting the circle div element
@@ -52,9 +53,11 @@ document.addEventListener('mousemove', function (cursor) {
     }
 });
 
+
 let clickCount = 0;
 document.addEventListener('dblclick', function () {
     if(clickCount == 0 && clickable == true){
+        clickCount++;
         const mainElement = document.querySelector('main'); // select the main element
         const getCursor = document.getElementById('cursor-circle'); // get circle cursor
         const getNavigation = document.querySelector('nav'); // get nav bar
@@ -65,7 +68,7 @@ document.addEventListener('dblclick', function () {
         fadeStars();
         setTimeout(() => {
             mainElement.style.display = 'none'; // Hide the element after fade-out
-        }, 500); 
+        }, 500);
 
         setTimeout(() => {
             const getNavigation = document.querySelector('nav');
@@ -75,12 +78,34 @@ document.addEventListener('dblclick', function () {
                 getNavigation.style.opacity = '1'; // Apply the fade-in effect
             }, 10); // Slight delay to allow the transition to take effect
             generateStars();
-            clickCount++;
         }, 2000);
     }
 
-
 });
+
+function displayNewSection(location){
+    const getNavigation = document.querySelector('nav');
+    getNavigation.style.transition = 'opacity 0.5s ease-in-out'; // Smooth fade-out effect
+    getNavigation.style.opacity = '0'; // Fade out
+    fadeStars();
+    setTimeout(() => {
+        getNavigation.style.display = 'none'; // Hide the element after fade-out
+    }, 500);
+
+    setTimeout(() => {
+        switch(location){
+            case "about":
+                window.location.href = 'about.html';
+                break;
+            case "projects":
+                window.location.href = 'projects.html';
+                break;
+            case "contact":
+                window.location.href = 'contact.html';
+                break;
+        }
+    }, 500);
+}
 
 
 // declaration for the variables to be used for the stars later on in the function.
@@ -88,6 +113,7 @@ function generateStars(){
     let count = 0;
     let maxStars = 100;
     const getDocumentBody = document.querySelector('body');
+
 
     const starLoop = setInterval(() => {
         const createStar = document.createElement('div');
@@ -105,8 +131,6 @@ function generateStars(){
         }, 500);
         // add the star to the document body.
         getDocumentBody.appendChild(createStar);
-
-
         count++;
         if(count > maxStars){
             clearInterval(starLoop);    
@@ -126,8 +150,6 @@ function animateStars(){
         // a range from -1 to +1 will be chosen for the base velcoity speed and ensuring that the stars can move in any direction.
         let velocityX = Math.random() * 2 - 1;
         let velocityY = Math.random() * 2 - 1;
-
-
         // nesting a function to move the stars.
         function moveStar() {
             // get current positions of the stars for when they were loaded in from the generateStars function.
@@ -135,11 +157,9 @@ function animateStars(){
             let currentX = parseFloat(star.style.left);
             let currentY = parseFloat(star.style.top);
 
-
             // update the positions with velocities
             let newX = currentX + (velocityX * velocitySpeed);
             let newY = currentY + (velocityY * velocitySpeed);
-
 
             // Check for collisions with window edges. basicallty checking if the stars are going to go off screen
             if (newX <= 0 || newX >= window.innerWidth) {
@@ -149,16 +169,11 @@ function animateStars(){
                 velocityY *= -1; // Reverse Y direction to 'bounce' off the edge
             }
 
-
             // Apply new position using css
             star.style.left = `${newX}px`;
             star.style.top = `${newY}px`;
-
-
             requestAnimationFrame(moveStar); // Continue animation infinitely
         }
-
-
         moveStar(); // Start animation for this star
     });
 }
@@ -172,4 +187,7 @@ function fadeStars(){
          }, 500);
      });
 }
+
+
+
 
