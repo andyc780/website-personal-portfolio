@@ -13,6 +13,7 @@
             /* cursor: none; */
             overflow-x: hidden;
             overflow-y:hidden;
+            user-select: none;
         }
         body{
             /* background-color: #151515; */
@@ -188,6 +189,15 @@
             display: none;
             opacity: 0;
         }
+        footer{
+            position:absolute;
+            bottom:0;
+            left:50%;
+            transform: translate(-50%, 0%);
+        }
+        footer > p{
+            color:#777;
+        }
     </style>
     <title>Andy's Portfolio</title>
 </head>
@@ -214,6 +224,9 @@
                 <button onclick = "displayResume()"> Resume </button>
             </div>
         </div>
+        <footer>
+            <p>Copyright &copy; 2025 Andy Chen</p>
+        </footer>
     </nav>
 </body>
 <script src ="script.js"></script>

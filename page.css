@@ -6,6 +6,8 @@
     /* cursor: none; */
     overflow-x: hidden;
     overflow-y:hidden;
+    padding:0;
+    margin:0;
 }
 body{
     /* background-color: #151515; */

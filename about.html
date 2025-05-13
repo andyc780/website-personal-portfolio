@@ -5,11 +5,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="page.css">
     <title>Andy - About Me</title>
+    <style>
+        nav{
+            position:fixed;
+            top:-100px;
+            height:75px;
+            width:100vw;
+            background-color: #333;
+            animation: navBarSlideDown 3s ease forwards;
+            animation-delay: 3s;
+           
+        }
+        @keyframes navBarSlideDown{
+            0%{
+                top:-100px;
+            }
+            100%{
+                top:0;
+            }
+        }
+        .navbar-items{
+            display: flex;
+            justify-content: space-evenly;
+            margin-top:25px;
+            align-items: center;
+        }
+        .spacer{
+            flex-grow:0.65;
+        }
+        a{
+            text-decoration: transparent;
+            color: #aeb5ee;
+            font-size:1rem;
+            font-weight: 500;
+            transition: text-decoration 1.5s ease, color 0.5s ease;
+        }
+        a:hover{
+            color: #7d89e4;
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
     <div id="cursor-circle"></div>
-    <h1>About Me Section</h1>
+    <nav>
+        <div class="navbar-items">
+            <h4>Andy's Portfolio</h4>
+            <div class="spacer"></div>
+            <a href="index.html">Return Home</a>
+            <a href="projects.html">Projects</a>
+            <a href="contact.html">Contact Information</a>
+            <a href="resume.html">Resume</a>
+        </div>
+    </nav>
     <a href="index.html">Return Home</a>
+    <header>
+        <h1>About Myself</h1>
+    </header>
 </body>
 <script src="script.js"></script>
 </html>

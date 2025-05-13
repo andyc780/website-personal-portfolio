@@ -53,7 +53,7 @@ document.addEventListener('mousemove', function (cursor) {
     }
 });
 
-
+// adding a click count in the event i want to make more pages in the home area, but right now, its kinda useless...
 let clickCount = 0;
 document.addEventListener('dblclick', function () {
     if(clickCount == 0 && clickable == true){
