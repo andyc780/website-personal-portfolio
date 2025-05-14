@@ -6,30 +6,29 @@
     <link rel="stylesheet" href="page.css">
     <title>Andy - About Me</title>
     <style>
+        main{
+            max-width: 80rem;
+            margin: auto;
+        }
         nav{
             position:fixed;
-            top:-100px;
             height:75px;
-            width:100vw;
-            background-color: #333;
-            animation: navBarSlideDown 3s ease forwards;
-            animation-delay: 3s;
-           
-        }
-        @keyframes navBarSlideDown{
-            0%{
-                top:-100px;
-            }
-            100%{
-                top:0;
-            }
-        }
-        .navbar-items{
+            width:100%;
+            opacity: 0;
             display: flex;
             justify-content: space-evenly;
-            margin-top:25px;
             align-items: center;
+            background-color: #333;
+            animation: navBarSlideDown 3s 2s ease forwards;
+           
         }
+        nav > .navbar-items{
+             display: flex;
+             justify-content: space-evenly; 
+             max-width: 80rem; 
+             width:100%;
+        }
+        
         .spacer{
             flex-grow:0.65;
         }
@@ -38,13 +37,48 @@
             color: #aeb5ee;
             font-size:1rem;
             font-weight: 500;
-            transition: text-decoration 1.5s ease, color 0.5s ease;
+            transition: text-decoration 1s ease, color 0.4s ease;
+            margin-left:10px;
+            margin-right:10px;
         }
         a:hover{
             color: #7d89e4;
             text-decoration: underline;
         }
-    </style>
+        h1{
+            margin:10px;
+            padding:3px;
+            text-align: center;
+            text-decoration: underline;
+        }
+        .intro-self-box{
+            opacity: 0;
+            width: 400px;
+            margin-top:200px;
+            animation: slidefromLeft 2s 2s ease forwards;   
+        }
+        /* Keyframe animation for the navigation bar when the webpage loads for this. */
+        @keyframes navBarSlideDown{
+            0%{
+                top:-100px;
+                opacity: 0;
+            }
+            100%{
+                top:0;
+                opacity: 1;
+            }
+        }
+        @keyframes slidefromLeft{
+            0%{
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            100%{
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        </style>
 </head>
 <body>
     <div id="cursor-circle"></div>
@@ -58,10 +92,16 @@
             <a href="resume.html">Resume</a>
         </div>
     </nav>
-    <a href="index.html">Return Home</a>
-    <header>
-        <h1>About Myself</h1>
-    </header>
+    
+    <main>
+        <div class="intro-self-box">
+            <h1>About Myself</h1>
+            <p>Hello, I'm Andy Chen. I'm Currently 17 years old enrolled in Sandra Day O'Connor Highschool. After high school, I plan on studying at ASU in Aerospace Engineering and a minor in Web Design. I am also cuurently enrolled in West-MEC Northeast Campus Coding Program to further my education and enhance my skills.</p>
+        </div>
+    </main>
 </body>
-<script src="script.js"></script>
+<script src="script2.js"></script>
 </html>
+
+
+

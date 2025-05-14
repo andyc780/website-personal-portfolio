@@ -4,8 +4,8 @@
     color:#ababab;
     scroll-behavior: smooth;
     /* cursor: none; */
-    overflow-x: hidden;
-    overflow-y:hidden;
+    /* overflow-x: hidden;
+    overflow-y:hidden; */
     padding:0;
     margin:0;
 }
@@ -14,7 +14,10 @@ body{
     opacity: 0;
     background-color:#151515;
     transition: background-color 2s ease-in-out;
+    /* max-width: 80%; */
 }
+
+
 #cursor-circle {
     /* making sure that circle can be anywhere on the webpage so absolute positioning :thumbs up: */
     position: absolute;
@@ -25,5 +28,5 @@ body{
     background: rgb(122,154,240);
     background: radial-gradient(circle, rgba(122,154,240,0.25) 0%, rgba(205,122,240,0.1) 40%, rgba(23,23,23,0) 60%);
     transform: translate(-50%, -50%); /* center this stupid circle to the middle of the cursor because it will be ugly without it. subtracting width and height to make it centered. */
-    z-index: -1;
+    z-index: 0;
 }
