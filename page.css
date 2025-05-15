@@ -28,5 +28,6 @@ body{
     background: rgb(122,154,240);
     background: radial-gradient(circle, rgba(122,154,240,0.25) 0%, rgba(205,122,240,0.1) 40%, rgba(23,23,23,0) 60%);
     transform: translate(-50%, -50%); /* center this stupid circle to the middle of the cursor because it will be ugly without it. subtracting width and height to make it centered. */
-    z-index: 0;
+    z-index: -1;
+    overflow: hidden;
 }
