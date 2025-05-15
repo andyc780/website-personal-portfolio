@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 *{
     font-family: 'Poppins', sans-serif;
-    color:#ababab;
+    color:#bcbcbc;
     scroll-behavior: smooth;
     /* cursor: none; */
     /* overflow-x: hidden;
@@ -20,7 +20,10 @@ body{
 
 #cursor-circle {
     /* making sure that circle can be anywhere on the webpage so absolute positioning :thumbs up: */
-    position: absolute;
+    position: fixed;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%); /* center the circle to the middle of the cursor */
     /* same width and height to create a square and then turn it into a circle later on. */
     width: 13rem;
     height: 13rem;
@@ -29,5 +32,17 @@ body{
     background: radial-gradient(circle, rgba(122,154,240,0.25) 0%, rgba(205,122,240,0.1) 40%, rgba(23,23,23,0) 60%);
     transform: translate(-50%, -50%); /* center this stupid circle to the middle of the cursor because it will be ugly without it. subtracting width and height to make it centered. */
     z-index: -1;
-    overflow: hidden;
+    pointer-events: none;
+}
+.gradient-green{
+    background: linear-gradient(90deg,rgba(134, 186, 157, 1) 0%, rgba(109, 199, 91, 1) 100%);
+    background-clip:text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.gradient-blue{ 
+    background: linear-gradient(90deg,rgba(126, 176, 207, 1) 0%, rgba(36, 165, 212, 1) 100%);
+    background-clip:text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }

@@ -10,6 +10,8 @@
         main{
             max-width: 80rem;
             margin: auto;
+            /* border-left: 1px solid #bcbcbc;
+            border-right: 1px solid #bcbcbc; */
         }
         nav{
             position:fixed;
@@ -50,7 +52,6 @@
             margin:10px;
             padding:3px;
             text-align: center;
-            text-decoration: underline;
         }
         
         .intro-self-box{
@@ -73,7 +74,8 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            animation: fadeIn 5s 4s ease forwards;
+            animation: fadeIn 3s 3s ease forwards;
+            z-index: -1;
         }
        .offset{
             margin-top:175px;
@@ -86,6 +88,20 @@
             border:4px solid #333;
             box-shadow: 0 0 50px rgba(255, 255, 255, 0.2);
 
+        }
+       
+        .header-title{
+            text-align: center;
+            margin-top:60px;
+            opacity: 0;
+            animation: fadeIn 3s 4s ease forwards;
+        }
+        .charts-1{
+            display: flex;
+            opacity: 0;
+            justify-content: space-evenly;
+            margin-top: 50px;
+            animation: fadeIn 3s 5s ease forwards;
         }
         /* Keyframe animation for the navigation bar when the webpage loads for this. */
         @keyframes navBarSlideDown{
@@ -116,6 +132,7 @@
                 opacity: 1;
             }
         }
+        
         </style>
 </head>
 <body>
@@ -134,7 +151,7 @@
     <main>
         <div class="separate-intro">
             <div class="intro-self-box">
-                <h1>About Andy Chen</h1>
+                <h1><span class="gradient-green">About Andy Chen</span></h1>
                 <p>Hello, I'm Andy Chen. I'm Currently 17 years old enrolled in Sandra Day O'Connor Highschool. After high school, I plan on studying at ASU in Aerospace Engineering and a minor in Web Design. I am also cuurently enrolled in West-MEC Northeast Campus Coding Program to further my education and enhance my skills.</p>
                 <br>
                 <p>In my free time, I enjoy cycling, playing video games, hanging out and playing with friends, working out, rock climbing, and always wanting to attempt/learn new things.</p>
@@ -147,8 +164,15 @@
                 <img class="offset" src="https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png" alt="">
             </div>
         </div>
+        <h1 class="header-title"><span class="gradient-blue">Time Allocation & Skills </span></h1>
+        <div class="charts-1">
+            <canvas id="donutChart" width="350" height="350"></canvas>
+            <canvas id ="barChart" width="450" height="350"></canvas>
+        </div>
     </main>
 </body>
+<!-- Chart.js import script tag  -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="script2.js"></script>
 </html>
 
