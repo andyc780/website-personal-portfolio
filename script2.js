@@ -19,7 +19,7 @@ document.addEventListener('mousemove', function (cursor) {
         circle.style.top = `${positionY}px`;
     }
 });
-setTimeout(() => { // 3s delay
+setTimeout(() => { // 5s delay
     // creation of the donut chart
     const data1 = {
         labels: ['Physical Events', 'Gaming', 'Social Activities', 'Other'],
@@ -100,7 +100,7 @@ setTimeout(() => { // 3s delay
     const getBarChart = document.getElementById('barChart').getContext('2d');
     const myBarChart = new Chart(getBarChart, configBar);
 
-}, 5000);
+}, 6000);
 // setTimeout(() => {
 //     const ctx = document.getElementById('donutChart').getContext('2d');
 //     const myDonutChart = new Chart(ctx, {
