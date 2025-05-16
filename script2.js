@@ -22,15 +22,17 @@ document.addEventListener('mousemove', function (cursor) {
 setTimeout(() => { // 5s delay
     // creation of the donut chart
     const data1 = {
-        labels: ['Physical Events', 'Gaming', 'Social Activities', 'Other'],
+        labels: ['Physical Activities', 'Gaming', 'Social Activities', 'Other', "Being Miserable"],
         datasets: [{
             label: "Time Spent (%)",
-            data: [30, 35, 25, 10],
+            data: [25, 35, 25, 10, 5],
             backgroundColor: [
-                'rgba(255, 99, 132, 0.7)',
-                'rgba(54, 162, 235, 0.7)',
-                'rgba(255, 206, 86, 0.7)',
-                'rgba(75, 192, 192, 0.7)'
+                'rgba(255, 99, 132, 0.9)',
+                'rgba(54, 162, 235, 0.9)',
+                'rgba(255, 206, 86, 0.9)',
+                'rgba(75, 192, 192, 0.9)',
+                'rgba(153, 102, 255, 0.9)'
+
             ],
             borderWidth: 0
         }]
@@ -46,7 +48,8 @@ setTimeout(() => { // 5s delay
                     text: 'Time Spent on Activities',
                     font: {
                         size: 16,
-                        weight: 'bold'
+                        weight: 'bold',
+                        family: 'Poppins, sans-serif'
                     },
                 }
             }
@@ -58,14 +61,14 @@ setTimeout(() => { // 5s delay
     const data2 = {
         labels: ["HTML", "CSS", "JavaScript", "jQuery", "Python"],
         datasets: [{
-            label: "", // Set label to empty string to hide it
+            label: "%", // Set label to empty string to hide it
             data: [30, 25, 20, 15, 10],
             backgroundColor: [
-                'rgba(255, 99, 132, 0.8)',
-                'rgba(54, 162, 235, 0.8)',
-                'rgba(255, 206, 86, 0.8)',
-                'rgba(75, 192, 192, 0.8)',
-                'rgba(153, 102, 255, 0.8)'
+                'rgba(255, 99, 132, 0.9)',
+                'rgba(54, 162, 235, 0.9)',
+                'rgba(255, 206, 86, 0.9)',
+                'rgba(75, 192, 192, 0.9)',
+                'rgba(153, 102, 255, 0.9)'
             ],
             borderColor: [
                 'rgba(255, 99, 132, 1)',
@@ -91,7 +94,8 @@ setTimeout(() => { // 5s delay
                     text: 'Coding Skills',
                     font: {
                         size: 16,
-                        weight: 'bold'
+                        weight: 'bold',
+                        family: 'Poppins, sans-serif'
                     },
                 }
             },
@@ -101,40 +105,3 @@ setTimeout(() => { // 5s delay
     const myBarChart = new Chart(getBarChart, configBar);
 
 }, 6000);
-// setTimeout(() => {
-//     const ctx = document.getElementById('donutChart').getContext('2d');
-//     const myDonutChart = new Chart(ctx, {
-//         type: 'doughnut',
-//         data: {
-//             labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple'],
-//             datasets: [{
-//                 label: 'My Dataset',
-//                 data: [12, 19, 3, 5, 2], // 5 values
-//                 backgroundColor: [
-//                     'rgba(255, 99, 132, 0.7)',
-//                     'rgba(54, 162, 235, 0.7)',
-//                     'rgba(255, 206, 86, 0.7)',
-//                     'rgba(75, 192, 192, 0.7)',
-//                     'rgba(153, 102, 255, 0.7)'
-//                 ],
-//                 borderColor: [
-//                     'rgba(255, 99, 132, 1)',
-//                     'rgba(54, 162, 235, 1)',
-//                     'rgba(255, 206, 86, 1)',
-//                     'rgba(75, 192, 192, 1)',
-//                     'rgba(153, 102, 255, 1)'
-//                 ],
-//                 borderWidth: 1
-//             }]
-//         },
-//         options: {
-//             responsive: false,
-//             cutout: '70%', // Makes it a donut instead of pie
-//             plugins: {
-//                 legend: {
-//                     position: 'right'
-//                 }
-//             }
-//         }
-//     });
-// },3000);

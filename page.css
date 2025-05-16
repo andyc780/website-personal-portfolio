@@ -21,9 +21,9 @@ body{
 #cursor-circle {
     /* making sure that circle can be anywhere on the webpage so absolute positioning :thumbs up: */
     position: fixed;
-    top:50%;
+    /* top:50%;
     left:50%;
-    transform: translate(-50%, -50%); /* center the circle to the middle of the cursor */
+    transform: translate(-50%, -50%); center the circle to the middle of the cursor */
     /* same width and height to create a square and then turn it into a circle later on. */
     width: 13rem;
     height: 13rem;
@@ -42,6 +42,12 @@ body{
 }
 .gradient-blue{ 
     background: linear-gradient(90deg,rgba(126, 176, 207, 1) 0%, rgba(36, 165, 212, 1) 100%);
+    background-clip:text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.gradient-purple{
+    background: linear-gradient(90deg,rgba(191, 159, 224, 1) 0%, rgb(211, 115, 228) 100%);
     background-clip:text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
