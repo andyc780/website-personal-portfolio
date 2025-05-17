@@ -41,6 +41,7 @@
             height:100px;
             width: 100%;
             background-color: #222;
+            user-select: none;
         }
         footer > p{
             color: #777;
@@ -107,6 +108,7 @@
         }
        .offset{
             margin-top:175px;
+            width: 230px;
        }
         img{
             width:200px;
@@ -124,6 +126,13 @@
             border-radius:15px;
             border:4px solid #333;
             box-shadow: 0 0 50px rgba(255, 255, 255, 0.2);
+        }
+        .img-shrink{
+            width:150px;
+            margin:auto;
+        }
+        .rounded{
+            border-radius: 50%;
         }
        
         .header-title{
@@ -210,10 +219,10 @@
             </div>
             <div class="image-spacing">
                 <div class="images-gallery">
-                    <img src="https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png" alt="">
-                    <img src="https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png" alt="">
+                    <img class="rounded" src="/images/portrait.png" alt="Potrait of Andy">
+                    <img class="img-shrink" src="/images/portrait2.jpeg" alt="Second Portrait of Andy">
                 </div>
-                <img class="offset" src="https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png" alt="">
+                <img class="offset" src="/images/group-photo.jpeg" alt="Group Photo with Friends">
             </div>
         </div>
         <h1 class="header-title"><span class="gradient-blue">Time Allocation & Skills </span></h1>
@@ -222,7 +231,7 @@
             <canvas id ="barChart" width="450" height="350"></canvas>
         </div>
         <div class="other-information">
-            <img class="large-img" src="https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png" alt="">
+            <img class="large-img" src="/images/sunset.jpeg" alt="Photo of Sunset">
             <div class="fun-facts">
                 <h2><span class="gradient-purple">Some fun facts</span></h2>
                 <ul>
@@ -253,6 +262,96 @@
 <!-- Chart.js import script tag  -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="script2.js"></script>
+<!-- Just for the data, the script tag here will be used. -->
+<script>
+    setTimeout(() => { // 5s delay
+        // creation of the donut chart
+        const data1 = {
+            labels: ['Physical Activities', 'Gaming', 'Social Activities', 'Other', "Being Miserable"],
+            datasets: [{
+                label: "Time Spent (%)",
+                data: [25, 35, 25, 10, 5],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.9)',
+                    'rgba(54, 162, 235, 0.9)',
+                    'rgba(255, 206, 86, 0.9)',
+                    'rgba(75, 192, 192, 0.9)',
+                    'rgba(153, 102, 255, 0.9)'
+
+                ],
+                borderWidth: 0
+            }]
+        }
+        const configDonut = {
+            type: 'doughnut',
+            data: data1,
+            options: {
+                responsive: false,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Time Spent on Activities',
+                        font: {
+                            size: 16,
+                            weight: 'bold',
+                            family: 'Poppins, sans-serif'
+                        },
+                    }
+                }
+            }
+        }
+        const getDonutChart = document.getElementById('donutChart').getContext('2d');
+        const myDonutChart = new Chart(getDonutChart, configDonut);
+
+        const data2 = {
+            labels: ["HTML", "CSS", "JavaScript", "jQuery", "Python"],
+            datasets: [{
+                label: "%", // Set label to empty string to hide it
+                data: [30, 25, 20, 15, 10],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.9)',
+                    'rgba(54, 162, 235, 0.9)',
+                    'rgba(255, 206, 86, 0.9)',
+                    'rgba(75, 192, 192, 0.9)',
+                    'rgba(153, 102, 255, 0.9)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)'
+                ],
+                borderWidth: 1
+            }]
+        }
+        const configBar = {
+            type: 'bar',
+            data: data2,
+            options: {
+                responsive: false,
+                plugins: {
+                    legend: {
+                        display: false // Hide legend to remove color box and label
+                    },
+                    title: {
+                        display: true,
+                        text: 'Coding Skills',
+                        font: {
+                            size: 16,
+                            weight: 'bold',
+                            family: 'Poppins, sans-serif'
+                        },
+                    }
+                },
+            }
+        }
+        const getBarChart = document.getElementById('barChart').getContext('2d');
+        const myBarChart = new Chart(getBarChart, configBar);
+
+    }, 6000);
+
+</script>
 </html>
 
 

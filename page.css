@@ -10,16 +10,13 @@
     margin:0;
 }
 body{
-    /* background-color: #151515; */
     opacity: 0;
     background-color:#151515;
     transition: background-color 2s ease-in-out;
-    /* max-width: 80%; */
 }
 
 
 #cursor-circle {
-    /* making sure that circle can be anywhere on the webpage so absolute positioning :thumbs up: */
     position: fixed;
     /* top:50%;
     left:50%;
