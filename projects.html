@@ -3,13 +3,168 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="page.css">
+    <link rel="stylesheet" href="sub-style.css">
     <title>Andy - Projects </title>
+    <style>
+        .intro-section{
+            opacity: 0;
+            width:500px;
+            margin: auto;
+            margin-top:150px;
+            animation: fadeIn 3s 2s ease forwards;
+        }
+        .project-display-section{
+           opacity: 0;
+           display: flex;
+           flex-direction: column;
+           padding:3.5rem;
+           animation: fadeIn 3s 3s ease forwards;
+        }
+        .project-box{
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            width:50%;
+            margin-bottom:125px;
+            padding:32px;
+            border:2px solid rgba(85,85,85,0.5);
+            border-radius:1rem;
+            transition: all 0.5s ease, scale 0.5s ease;
+        }
+        .project-box:hover{
+            scale: 1.01;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+        }
+        .row{
+            display: flex;
+            justify-content: center;
+            gap:100px;
+        }
+        #redirect{
+            margin:0;
+            padding:0;
+            color:rgb(23, 133, 164);
+        }
+        img{
+            width:175px;
+            height:125px;
+            margin:10px;
+            border-radius:0.5rem;
+            border:3px solid rgba(85,85,85,0.5);
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+        }
+        .project-title{
+            color:rgb(169, 108, 205);
+        }
+        .coding-language{
+          color:rgb(183, 165, 63);
+        }
+        .left{
+            animation:slideProjectLeft 1s 3s ease forwards;
+        }
+        .right{
+            animation:slideProjectRight 1s 3s ease forwards;
+        }
+        .fadeIn{
+            animation: fadeIn 3s 2s ease forwards;
+        }
+    </style>
 </head>
 <body>
     <div id="cursor-circle"></div>
-    <h1>Projects Section</h1>
-    <a href="index.html">Return Home</a>
+    <nav>
+        <div class="navbar-items">
+            <h4>Andy's Portfolio</h4>
+            <div class="spacer"></div>
+            <a href="index.html">Return Home</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact Information</a>
+        </div>
+    </nav>
+    <main>
+        <div class="intro-section">
+            <h1><span class="gradient-orange"> My Projects </span></h1>
+            <p>This page is dedicated to showing my most recent works that I've created. You can try out these projects by simply clicking the links provided in each section that will redirect you to the GitHub website for it. The projects are NOT fully displayed in order from most recent to oldest so keep that in mind. But they are made within 2024 or 2025 so it doesn't really matter much. </p>
+        </div>
+        <div class="project-display-section">
+            <h1 style="margin-bottom: 40px; margin-top:80px;"><span class="gradient-blue"> List of My Projects</span></h1>  <!--too lazy to make a class so inline styling it is.-->
+            <div class="row">
+                <div class="project-box left">
+                    <div class="text">
+                        <h2><span class ="project-title">Blitz Clicker</span> - <span class="coding-language">jQuery</span></h2>
+                        <p>An endless clicker game that tests your mouse accuracy, reaction time, and speed all at once with multiple difficulties. All logic was coded in jQuery, graphics and styling using both CSS and jQuery.</p>
+                        <a id="redirect" href="https://andyc780.github.io/jQuery-game/" target="_blank" rel="noopener">Click here to view.</a>
+                    </div>
+                    <img src="/images/Blitz-Clicker.png" alt="Blitz Cliker Game Image">
+                </div>
+                <div class="project-box right">
+                    <div class="text">
+                        <h2><span class ="project-title">Pokefetch</span> - <span class="coding-language">JSON API</span></h2>
+                        <p>A simple website that displays basic information about each Pokemon such as their name and statistics. Specific Pokemon can be searched and displayed as well as this is all gathered using JSON.</p>
+                        <a id="redirect" href="https://andyc780.github.io/pokefetch/" target="_blank" rel="noopener">Click here to view.</a>
+                    </div>
+                    <img src="/images/pokefetch.png" alt="Pokefetch Site Image">
+                </div>
+            </div>
+            <div class="row">
+                <div class="project-box left">
+                    <div class="text">
+                        <h2><span class ="project-title">Stopwatch Timer</span> - <span class="coding-language">jQuery</span></h2>
+                        <p>A simple stopwatch program with some additional features such as a lap history and three simple games that can be played that utilizes jQuery to function.</p>
+                        <a id="redirect" href="https://andyc780.github.io/jquery-stopwatch/" target="_blank" rel="noopener">Click here to view.</a>
+                    </div>
+                    <img src="/images/stopwatch.png" alt="Stopwatch Timer Image">
+                </div>
+                <div class="project-box right">
+                    <div class="text">
+                        <h2><span class ="project-title">Interactive Image Gallery</span> - <span class="coding-language">jQuery</span></h2>
+                        <p>An image gallery website displays a batch of images and uses jQuery to make it function. Using arrows or hovering over the mini gallery allows the user to traverse through the gallery using smooth animations.</p>
+                        <a id="redirect" href="https://andyc780.github.io/interactive-image-gallery/" target="_blank" rel="noopener">Click here to view.</a>
+                    </div>
+                    <img src="/images/interactive-img.png" alt="Interactive Image Gallery Photo">
+                </div>
+            </div>
+            <div class="row">
+                <div class="project-box left">
+                    <div class="text">
+                        <h2><span class ="project-title">Holiday Countdown Timer</span> - <span class="coding-language">JavaScript</span></h2>
+                        <p>A website that lets you select an event name and date to display a countdown of how long until that event is reached. Uses JavaScript to display this information over HTML and CSS.</p>
+                        <a id="redirect" href="https://andyc780.github.io/holiday-clock/" target="_blank" rel="noopener">Click here to view.</a>
+
+                    </div>
+                    <img src="/images/holiday-countdown.png" alt="Holiday Countdown Timer Image">
+                </div>
+                <div class="project-box right">
+                    <div class="text">
+                        <h2><span class ="project-title">JS Web Design</span> - <span class="coding-language">JavaScript</span></h2>
+                        <p>A website that is entirely created using JavaScript only. Every element and styling was created in JavaScript as there is nothing initally in the HTML and CSS files.</p>
+                        <a id="redirect" href="https://andyc780.github.io/js-web-design/" target="_blank" rel="noopener">Click here to view.</a>
+
+                    </div>
+                    <img src="/images/js-web.png" alt="JS Web Design Image">
+                </div>
+            </div>
+            <div class="row">
+                <div class="project-box left">
+                    <div class="text">
+                        <h2><span class="project-title">Tailwind & Portfolio Front Page</span> - <span class="coding-language">HTML + Tailwind CSS</span></h2>
+                        <p>Making my front personal portfolio webpage using Tailwind CSS as styling. Also a regular CSS option as well. This is my first iteration of my portfolio website which helped shape this one currently.</p>
+                        <a id="redirect" href="https://andyc780.github.io/web-portfolio/" target="_blank" rel="noopener">Click here to view.</a>
+                    </div>
+                    <img src="/images/tailwind.png" alt="Tailwind CSS Image">
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2025 Andy Chen</p>
+        <div class="links">
+            <a href="index.html>">Home Page</a>
+            <a href="about.html">About</a>
+            <a href="projects.html">Projects</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </footer>
 </body>
-<script src="script.js"></script>
+<script src="script2.js"></script>
 </html>

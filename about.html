@@ -3,81 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="page.css">
+    <link rel="stylesheet" href="sub-style.css">
     <title>Andy - About Me</title>
     <style>
-        /* NOTE: add a 2s css delay MINIMUM to animations if adding them because the website load has a 2s delay */
-        main{
-            max-width: 80rem;
-            margin: auto;
-            /* border-left: 1px solid #bcbcbc;
-            border-right: 1px solid #bcbcbc; */
-        }
-        nav{
-            position:fixed;
-            height:75px;
-            width:100%;
-            opacity: 0;
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            background-color: #222;
-            animation: navBarSlideDown 3s 2s ease forwards;
-            z-index:1;
-           
-        }
-        nav > .navbar-items{
-             display: flex;
-             justify-content: space-evenly; 
-             max-width: 80rem; 
-             width:100%;
-        }
-        footer{
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            gap:10px;
-            height:100px;
-            width: 100%;
-            background-color: #222;
-            user-select: none;
-        }
-        footer > p{
-            color: #777;
-            font-weight:normal;
-            margin-left:1rem;
-            margin-right:1rem;
-        }
-        .links > a{
-            color:#555;
-            font-weight:normal;
-            text-decoration: underline;
-            margin-left:1rem;
-            margin-right:1rem;
-        }
-        .spacer{
-            flex-grow:0.65;
-        }
-        a{
-            text-decoration: transparent;
-            color: #aeb5ee;
-            font-size:1rem;
-            font-weight: 500;
-            transition: text-decoration 1s ease, color 0.4s ease;
-            margin-left:10px;
-            margin-right:10px;
-            padding:5px;
-        }
-        a:hover{
-            color: #7d89e4;
-            text-decoration: underline;
-        }
-        h1{
-            margin:10px;
-            padding:3px;
-            text-align: center;
-        }
         h2{
             font-size:2rem;
             padding-bottom:16px;
@@ -164,40 +92,10 @@
             font-size:1.25rem;
             font-weight: 500;
         }
-        /* Keyframe animation for the navigation bar when the webpage loads for this. */
-        @keyframes navBarSlideDown{
-            0%{
-                top:-100px;
-                opacity: 0;
-            }
-            100%{
-                top:0;
-                opacity: 1;
-            }
-        }
-        @keyframes slidefromLeft{
-            0%{
-                transform: translateX(-100%);
-                opacity: 0;
-            }
-            100%{
-                transform: translateX(0%);
-                opacity: 1;
-            }
-        }
-        @keyframes fadeIn{
-            0%{
-                opacity: 0;
-            }
-            100%{
-                opacity: 1;
-            }
-        }
         </style>
 </head>
 <body>
     <div id="cursor-circle"></div>
-    <div id="scroller"></div>
     <nav>
         <div class="navbar-items">
             <h4>Andy's Portfolio</h4>
@@ -205,7 +103,6 @@
             <a href="index.html">Return Home</a>
             <a href="projects.html">Projects</a>
             <a href="contact.html">Contact Information</a>
-            <a href="resume.html">Resume</a>
         </div>
     </nav>
     
@@ -233,13 +130,13 @@
         <div class="other-information">
             <img class="large-img" src="/images/sunset.jpeg" alt="Photo of Sunset">
             <div class="fun-facts">
-                <h2><span class="gradient-purple">Some fun facts</span></h2>
+                <h2><span class="gradient-purple">Some random fun facts</span></h2>
                 <ul>
                     <li>I have 2 sisters (fraternal twins)</li>
                     <li>I really like to sleep in a lot</li>
                     <li>Waffle enjoyer (over pancakes)</li>
                     <li>Losing my mind over ap classes (college board sucks)</li>
-                    <li>I've got undiagnosed ADHD</li>
+                    <li>ADHD energy</li>
                     <li>Currently have had braces for 5+ years</li>
                     <li>Heavy eater</li>
                 </ul>
@@ -250,12 +147,10 @@
     <footer>
         <p>&copy; 2025 Andy Chen</p>
         <div class="links">
-            <a href="index.html>">Home</a>
-            <!-- scroll back to top -->
-            <a href="#" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">About</a>
+            <a href="index.html">Home Page</a>
+            <a href="about.html">About</a>
             <a href="projects.html">Projects</a>
             <a href="contact.html">Contact</a>
-            <a href="resume.html">Resume</a>
         </div>
     </footer>
 </body>
@@ -264,6 +159,7 @@
 <script src="script2.js"></script>
 <!-- Just for the data, the script tag here will be used. -->
 <script>
+    
     setTimeout(() => { // 5s delay
         // creation of the donut chart
         const data1 = {

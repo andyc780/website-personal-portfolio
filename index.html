@@ -18,8 +18,8 @@
         body{
             /* background-color: #151515; */
             opacity: 0;
-            background-color:#999;
-            transition: background-color 2s ease-in-out;
+            background-color:#454545;
+            transition: background-color 1s ease-in-out;
         }
         .central-container-introduction{
             position:absolute;
@@ -41,8 +41,8 @@
             /* making sure that circle can be anywhere on the webpage so absolute positioning :thumbs up: */
             position: fixed;
             /* same width and height to create a square and then turn it into a circle later on. */
-            width: 13rem;
-            height: 13rem;
+            width: 14rem;
+            height: 14rem;
             border-radius: 50%; /* smooth the square into a circle */
             background: rgb(122,154,240);
             background: radial-gradient(circle, rgba(122,154,240,0.25) 0%, rgba(205,122,240,0.1) 40%, rgba(23,23,23,0) 60%);
@@ -89,6 +89,48 @@
             background: #db9914;
             background: radial-gradient(circle, rgba(219, 153, 20, 0.2) 0%, rgba(212, 162, 42, 0.1) 40%, rgba(204, 172, 65, 0) 60%);
         }
+        #deco-mini-1{
+            position:fixed;
+            bottom:5%;
+            left:5%;
+            width:25rem;
+            height:25rem;
+            border-radius:50%;
+            background: #d9c530;
+            background: radial-gradient(circle, rgba(217, 197, 48, 0.2) 0%, rgba(215, 203, 115, 0.1) 40%, rgba(214, 207, 152, 0) 60%);
+
+        }
+        #deco-mini-2{
+            position:fixed;
+            top:5%;
+            right:5%;
+            width:25rem;
+            height:25rem;
+            border-radius:50%;
+            background: #d9c530;
+            background: radial-gradient(circle, rgba(217, 197, 48, 0.2) 0%, rgba(215, 203, 115, 0.1) 40%, rgba(214, 207, 152, 0) 60%);
+
+        }
+        #deco-mini-3{
+            position: fixed;
+            top:5%;
+            left:5%;
+            width:25rem;
+            height:25rem;
+            border-radius:50%;
+            background: #c24040;
+            background: radial-gradient(circle, rgba(194, 64, 64, 0.2) 0%, rgba(202, 106, 106, 0.1) 40%, rgba(207, 128, 128, 0) 60%);
+        }
+        #deco-mini-4{
+            position:fixed;
+            bottom:5%;
+            right:5%;
+            width:25rem;
+            height:25rem;
+            border-radius:50%;
+            background: #c24040;
+            background: radial-gradient(circle, rgba(194, 64, 64, 0.2) 0%, rgba(202, 106, 106, 0.1) 40%, rgba(207, 128, 128, 0) 60%);
+        }
         .star-specks{
             position: fixed;
             z-index:-2;
@@ -98,23 +140,6 @@
             opacity: 0;
             border-radius:50%;
         }
-        .star { /* taken from online to use but not sure if its in the final product */
-            position: fixed;
-            z-index: -2;
-                width: 20px;
-                opacity: 0;
-                aspect-ratio: 1;
-                background: #F8CA00;
-                clip-path: polygon(50% 0,
-                    calc(50%*(1 + sin(.4turn))) calc(50%*(1 - cos(.4turn))),
-                    calc(50%*(1 - sin(.2turn))) calc(50%*(1 - cos(.2turn))),
-                    calc(50%*(1 + sin(.2turn))) calc(50%*(1 - cos(.2turn))),
-                    calc(50%*(1 - sin(.4turn))) calc(50%*(1 - cos(.4turn)))
-                );
-            /* or more simple
-            clip-path: polygon(50% 0,79% 90%,2% 35%,98% 35%,21% 90%);
-            */
-            }
         .gradient-name{
             background: linear-gradient(90deg, rgba(122,154,240,0.85) 0%, rgba(205,122,240,0.85) 100%);
             background-clip: text;
@@ -123,29 +148,41 @@
             font-size: 2.5rem;
         }
         /* may be changed later since this is a very basic typing animation */
-        .typing-animation {
-            animation: smoothTyping 1.75s ease-in-out forwards;
-            animation-delay:3.5s;
-            white-space: nowrap;
-            overflow: hidden;
-            display: inline-block; /* prevent unnecessary text movement after the animation ends. */
-            width: 0; /* start with no width so it looks like its typing out the text. */
+    .typing-animation {
+        overflow: hidden;
+        display: inline-block;
+        white-space: nowrap;
+        border-right: 3px solid #ababab;
+        width: 0;
+        animation: typing 2s steps(40, end) forwards, blink-caret 0.7s step-end infinite;
+        animation-delay:3s;
+    }
+
+    @keyframes typing {
+        from {
+             width: 0; 
         }
-        @keyframes smoothTyping {
-            0% {
-                width: 0;
-            }
-            100% {
-                width: 100%;
-            }
+        to {
+             width: 100%; 
         }
+    }
+
+    @keyframes blink-caret {
+        0%, 100% {
+             border-right-color: #ababab; 
+        }
+        50% {
+             border-right-color: transparent; 
+        }
+    }
         .message{
             opacity: 0;
             position: absolute;
-            top:65%;
+            top:85%;
             left:50%;
             transform: translate(-50%, -50%);
             color: #787878;
+            font-size:1.25rem;
             /* transition: opacity 0.75s ease; */
         }
         .navigation-section{
@@ -207,22 +244,26 @@
         <div id="cursor-circle"></div>
         <div id="deco-circle-1"></div>
         <div id="deco-circle-2"></div>
+        <div id="deco-mini-1"></div>
+        <div id="deco-mini-2"></div>
         <div class="central-container-introduction">
             <h1><span class="gradient-name">Andy Chen</span></h1>
             <p class ="typing-animation">Aerospace Engineer & Front-End Web Developer</p>
         </div>
-        <p class="message">Double Click to Navigate Forward</p>
+        <p class="message">Click to Navigate Forward</p>
     </main>
 
     <nav>
         <div id="deco-circle-3"></div>
         <div id="deco-circle-4"></div>
+         <div id="deco-mini-3"></div>
+        <div id="deco-mini-4"></div>
         <div class="navigation-section">
             <div class="navigation-items">
                 <button onclick = "displayNewSection('about')"> About </button>
                 <button onclick ="displayNewSection('projects')"> Projects </button>
                 <button onclick ="displayNewSection('contact')"> Contact Information </button>
-                <button onclick = "displayResume()"> Resume </button>
+                <button onclick="reload()"> Return Back </button>
             </div>
         </div>
         <footer>

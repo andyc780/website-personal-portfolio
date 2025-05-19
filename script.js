@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function() {
         getBody.style.transition = 'opacity 2s ease-in-out';
         getBody.style.opacity = '1';
         generateStars();
-    },3000)
+    },2000)
     // displays the message after a few moments and applies a nice pulsing effect to the text for extra detail.
     setTimeout(() => {
         const getInfoMessage = document.querySelector(".message");
@@ -55,7 +55,7 @@ document.addEventListener('mousemove', function (cursor) {
 
 // adding a click count in the event i want to make more pages in the home area, but right now, its kinda useless...
 let clickCount = 0;
-document.addEventListener('dblclick', function () {
+document.addEventListener('click', function () {
     if(clickCount == 0 && clickable == true){
         clickCount++;
         const mainElement = document.querySelector('main'); // select the main element
@@ -111,7 +111,7 @@ function displayNewSection(location){
 // declaration for the variables to be used for the stars later on in the function.
 function generateStars(){
     let count = 0;
-    let maxStars = 100;
+    let maxStars = 120;
     const getDocumentBody = document.querySelector('body');
 
 
@@ -186,6 +186,18 @@ function fadeStars(){
              star.remove();
          }, 500);
      });
+}
+function reload(){
+    const getNavigation = document.querySelector('nav');
+    getNavigation.style.transition = 'opacity 0.5s ease-in-out'; // Smooth fade-out effect
+    getNavigation.style.opacity = '0'; // Fade out
+    fadeStars();
+    setTimeout(() => {
+        getNavigation.style.display = 'none'; // Hide the element after fade-out
+    }, 500);
+    setTimeout(() =>{
+        location.reload();
+    }, 1000);
 }
 
 

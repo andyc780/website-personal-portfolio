@@ -3,13 +3,148 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="page.css">
+    <link rel="stylesheet" href="sub-style.css">
     <title>Andy - Contact Information</title>
 </head>
+<style>
+    footer{
+        opacity: 0;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translate(-50%, 0%);
+        animation:slideFooterUp 2s 2s ease forwards;
+    }
+    .contact-box{
+        margin-top:200px;
+        opacity: 0;
+        animation: fadeIn 3s 2s ease forwards;
+    }
+    .contact-area{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap:100px;
+    }
+    .input-area{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+    textarea{
+        /* resize:none; */
+        height: 100px;
+        width: 300px;
+        padding:10px;
+        background-color: #444;
+        border: 2px solid #222;
+        border-radius: 1rem;
+    }
+    input{
+        background-color: #444;
+        padding:10px;
+        border-radius: 0.5rem;
+        border: 2px solid #222;
+        width:250px;
+    }
+    input:focus{
+        outline: none;
+        border: 2px solid #888;
+    }
+    textarea:focus{
+        outline: none;
+        border: 2px solid #888;
+    }
+    button{
+        display: block;
+        background-color:#555;
+        border:2px solid #222;
+        border-radius:0.75rem;
+        height:50px;
+        width:auto;
+        padding:10px 50px;
+        margin: 30px auto 0 auto;
+        transition: all 0.5s ease, scale 0.5s ease;
+    }
+    button:hover{
+        background-color: #666;
+        border: 2px solid #444;
+        scale: 1.05;
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    }
+</style>
 <body>
     <div id="cursor-circle"></div>
-    <h1>Contact Information Section</h1>
-    <a href="index.html">Return Home</a>
+    <nav>
+        <div class="navbar-items">
+            <h4>Andy's Portfolio</h4>
+            <div class="spacer"></div>
+            <a href="index.html">Return Home</a>
+            <a href="projects.html">Projects</a>
+            <a href="about.html">About</a>
+        </div>
+    </nav>
+    <main>
+        <form id="contact-form" class="contact-box">
+            <h1><span class="gradient-green">Contact Me</span></h1>
+            <div class="contact-area">
+                <div class="input-area">
+                    <input type="text" id="subject" name="subject" placeholder="Email Subject" required>
+                    <input type="text" id="name" name="name" placeholder="Your Name" required>
+                </div>
+                <div class="message-area">
+                    <textarea id="message" name="message" placeholder="Message Information" required></textarea>
+                </div>
+            </div>
+            <button type="submit" id="submit">Send Message!</button>
+        </form>
+
+    </main>
+    <footer>
+        <p>&copy; 2025 Andy Chen</p>
+        <div class="links">
+            <a href="index.html">Home Page</a>
+            <a href="about.html">About</a>
+            <a href="projects.html">Projects</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </footer>
 </body>
-<script src="script.js"></script>
+<script src="script2.js"></script>
+<!-- Email JS for sending emails -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init({
+        publicKey: "bPgadFbrh5ShxkZ4y",
+      });
+   })();
+</script>
+<script>
+    document.getElementById('contact-form').addEventListener('submit', function(event){
+        event.preventDefault(); // prevent default form submission
+        // getting form values/information
+        const subject = document.getElementById('subject').value;
+        const name = document.getElementById('name').value;
+        const message = document.getElementById('message').value;
+        // preparing the email
+        var templateParams = {
+            title: subject,
+            name: name,
+            message: message
+        };
+        emailjs.send('service_883yzor', 'template_xxmxusf', templateParams)
+        .then(function(response) {
+            console.log('Success!', response.status, response.text);
+            alert("Email Sent Successfully!");
+            document.getElementById('subject').value = '';
+            document.getElementById('name').value = '';
+            document.getElementById('message').value = '';
+        }, function(error) {
+            console.log('Failed!', error);
+            alert("Email Failed to Send.");
+        });
+
+    });
+</script>
 </html>
