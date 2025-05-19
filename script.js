@@ -111,7 +111,13 @@ function displayNewSection(location){
 // declaration for the variables to be used for the stars later on in the function.
 function generateStars(){
     let count = 0;
-    let maxStars = 120;
+    let maxStars = 130;
+    if(window.innerWidth < 1000) { // 60 stars for medium screens <1000px
+        maxStars = 65;
+    }
+    if (window.innerWidth < 500) { // 30 stars for small screens <500px
+        maxStars = 30;
+    }
     const getDocumentBody = document.querySelector('body');
 
 
@@ -138,7 +144,7 @@ function generateStars(){
     }, 10);
     setTimeout(() => {
         animateStars();
-    },1000);
+    },1100);
 }
 function animateStars(){
     let velocitySpeed = 0.35; // speed of the stars, can be adjusted to make them faster or slower with this value.
