@@ -131,7 +131,7 @@ nav{
     justify-content: space-around;
     align-items: center;
     background-color: #222;
-    animation: navBarSlideDown 2s 2s ease forwards;
+    animation: navBarSlideDown 2s 1s ease forwards;
     z-index:1;
     
 }

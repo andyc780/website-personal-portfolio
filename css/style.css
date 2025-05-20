@@ -9,7 +9,6 @@
     user-select: none;
 }
 body{
-    /* background-color: #151515; */
     opacity: 0;
     background-color:#454545;
     transition: background-color 1s ease-in-out;

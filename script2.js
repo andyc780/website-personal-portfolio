@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
     setTimeout(() => {
         const getBody = document.querySelector('body');
-        getBody.style.transition = 'opacity 2s ease-out';
+        getBody.style.transition = 'opacity 0.5s ease-out';
         getBody.style.opacity = '1'; // Fade in
     }, 1000);
 });

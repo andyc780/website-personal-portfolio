@@ -4,12 +4,12 @@ footer{
     bottom: 0;
     left: 50%;
     transform: translate(-50%, 0%);
-    animation:slideFooterUp 2s 2s ease forwards;
+    animation:slideFooterUp 2s 1s ease forwards;
 }
 .contact-box{
     margin-top:200px;
     opacity: 0;
-    animation: fadeIn 3s 2s ease forwards;
+    animation: fadeIn 3s 1s ease forwards;
 }
 .contact-area{
     display: flex;

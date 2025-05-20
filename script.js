@@ -63,9 +63,9 @@ document.addEventListener('click', function () {
         const getNavigation = document.querySelector('nav'); // get nav bar
         getNavigation.appendChild(getCursor); // append the cursor to the navigation bar before removing it so it can be tracked still
 
+        fadeStars();
         mainElement.style.transition = 'opacity 0.5s ease-out'; // Smooth fade-out effect
         mainElement.style.opacity = '0'; // Fade out
-        fadeStars();
         setTimeout(() => {
             mainElement.style.display = 'none'; // Hide the element after fade-out
         }, 500);
@@ -78,19 +78,19 @@ document.addEventListener('click', function () {
                 getNavigation.style.opacity = '1'; // Apply the fade-in effect
             }, 10); // Slight delay to allow the transition to take effect
             generateStars();
-        }, 2000);
+        }, 1000);
     }
 
 });
 
 function displayNewSection(location){
     const getNavigation = document.querySelector('nav');
-    getNavigation.style.transition = 'opacity 0.5s ease-in-out'; // Smooth fade-out effect
+    getNavigation.style.transition = 'opacity 0.35s ease-in-out'; // Smooth fade-out effect
     getNavigation.style.opacity = '0'; // Fade out
     fadeStars();
     setTimeout(() => {
         getNavigation.style.display = 'none'; // Hide the element after fade-out
-    }, 500);
+    }, 350);
 
     setTimeout(() => {
         switch(location){
@@ -104,14 +104,14 @@ function displayNewSection(location){
                 window.location.href = 'contact.html';
                 break;
         }
-    }, 500);
+    },500);
 }
 
 
 // declaration for the variables to be used for the stars later on in the function.
 function generateStars(){
     let count = 0;
-    let maxStars = 130;
+    let maxStars = 120;
     if(window.innerWidth < 1000) { // 60 stars for medium screens <1000px
         maxStars = 65;
     }

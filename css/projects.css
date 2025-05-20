@@ -3,21 +3,21 @@
     width:500px;
     margin: auto;
     margin-top:150px;
-    animation: fadeIn 3s 2s ease forwards;
+    animation: fadeIn 3s 1s ease forwards;
 }
 .project-display-section{
     opacity: 0;
     display: flex;
     flex-direction: column;
     padding:3.5rem;
-    animation: fadeIn 3s 3s ease forwards;
+    animation: fadeIn 3s 2s ease forwards;
 }
 .project-box{
     display: flex;
     justify-content: space-around;
     align-items: center;
     width:50%;
-    margin-bottom:125px;
+    margin-bottom:75px;
     padding:32px;
     border:2px solid rgba(85,85,85,0.5);
     border-radius:1rem;
@@ -52,11 +52,11 @@ img{
     color:rgb(183, 165, 63);
 }
 .left{
-    animation:slideProjectLeft 1s 3s ease forwards;
+    animation:slideProjectLeft 1s 2s ease forwards;
 }
 .right{
-    animation:slideProjectRight 1s 3s ease forwards;
+    animation:slideProjectRight 1s 2s ease forwards;
 }
 .fadeIn{
-    animation: fadeIn 3s 2s ease forwards;
+    animation: fadeIn 3s 1s ease forwards;
 }

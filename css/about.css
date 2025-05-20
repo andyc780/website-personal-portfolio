@@ -6,7 +6,7 @@ h2{
     opacity: 0;
     width: 400px;
     margin-top:200px;
-    animation: slidefromLeft 2s 2s ease forwards;   
+    animation: slidefromLeft 2s 1s ease forwards;   
 }
 .separate-intro{
     display: flex;
@@ -22,7 +22,7 @@ h2{
     display: flex;
     justify-content: center;
     align-items: center;
-    animation: fadeIn 3s 3s ease forwards;
+    animation: fadeIn 3s 2s ease forwards;
     z-index: -1;
 }
 .offset{
@@ -58,14 +58,14 @@ img{
     text-align: center;
     margin-top:100px;
     opacity: 0;
-    animation: fadeIn 3s 4s ease forwards;
+    animation: fadeIn 3s 3s ease forwards;
 }
 .charts-1{
     display: flex;
     opacity: 0;
     justify-content: space-evenly;
     margin-top: 25px;
-    animation: fadeIn 4s 5s ease forwards;
+    animation: fadeIn 4s 4s ease forwards;
 }
 .other-information{
     display: flex;
@@ -74,7 +74,7 @@ img{
     margin-top: 150px;
     margin-bottom:150px;
     opacity: 0;
-    animation: fadeIn 4s 5s ease forwards;
+    animation: fadeIn 4s 4s ease forwards;
 }
 .fun-facts{
     padding:10px;
