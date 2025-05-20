@@ -60,3 +60,50 @@ img{
 .fadeIn{
     animation: fadeIn 3s 1s ease forwards;
 }
+@media (max-width: 1200px){
+    .row{
+        gap:25px;
+    }
+    img{
+        width:135px;
+        height:100px;
+    }
+}
+@media (max-width:1024px){
+    .row{
+        flex-direction: column;
+        gap:0px;
+    }
+    .project-box{
+        width:70%;
+        margin: auto;
+        margin-bottom:50px;
+    }
+    img{
+        width:200px;
+        height:150px;
+    }
+}
+/* Media queries for smaller screens */
+@media (max-width:750px){
+    .project-box{
+        display: flex;
+        flex-direction: column;
+    }
+}
+@media (max-width:650px){
+    h4, .spacer{
+        display: none;
+    }
+}
+@media (max-width:550px){
+    .project-display-section{
+        padding:1rem;
+    }
+    .intro-section{
+        width:300px;
+    }
+    .links > a{
+        font-size:12.5px;
+    }
+}

@@ -37,3 +37,19 @@ document.querySelectorAll('a').forEach(link => {
         }, 500);
     });
 });
+
+// media query event to modify the link text content. Checks if when the screen is resized using the event listener
+// and if the screen is less than 400px, it will change the text content of the links to "Return" and "Contact".
+// gets better responsiveness as a result of this.
+window.addEventListener('resize', updateLinkText);
+function updateLinkText() {
+    const getReturnLink = document.getElementById('index');
+    const getContactLink = document.getElementById('contact');
+    if (window.matchMedia("(max-width: 400px)").matches) {
+        if (getReturnLink) getReturnLink.textContent = "Return";
+        if (getContactLink) getContactLink.textContent = "Contact";
+    } else {
+        if (getReturnLink) getReturnLink.textContent = "Return Home";
+        if (getContactLink) getContactLink.textContent = "Contact Me";
+    }
+}

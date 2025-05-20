@@ -83,38 +83,84 @@ ul{
     font-size:1.25rem;
     font-weight: 500;
 }
-@media (max-width: 1000px) and (min-width: 768px) {
-    img{
-        height:150px;
-        width:150px;
-    }
-    .img-shrink{
-        width:100px;
-        margin:auto;
-    }
-    .offset{
-        margin-top:175px;
-        width: 175px;
-    }
-    .intro-self-box{
-        width: 300px;
-        padding:40px;
-        flex-basis:75%;
-    }
+/* media queries for the smaller devices */
+@media (max-width: 1000px) {
     .separate-intro{
         display: flex;
-        justify-content: center;
+        flex-direction: column;
     }
+    .intro-self-box{
+        margin: auto;
+        margin-top:125px;
+    }
+    .images-gallery{
+        margin-top: 50px;
+    }
+    .offset{
+        margin-top:75px;
+    }
+
     .large-img{
-        scale:0.8;
+        scale:0.7;
     }
     ul{
         font-size:1rem;
     }
    .charts-1{
-        scale:0.8;
+        scale:1;
+        margin: auto;
     }
     h2{
         font-size:1.75rem;
+    }
+    /* Change the size of the charts, needs special properties in order to work  */
+    #donutChart, #barChart {
+        width: 300px !important;
+        height: 300px !important;
+    }
+}
+/* Media queries for smaller devices */
+@media (max-width: 650px) {
+    h1{
+        font-size: 1.75rem;   
+    }
+    h4, .spacer{
+        display: none;
+    }
+    .charts-1{
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .other-information{
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-left:12.5px;
+        margin-right:12.5px;
+        margin-top:100px;
+    }
+    .links > a{
+        font-size:12.5px;
+    }
+}
+@media (max-width: 500px) {
+   .image-spacing{
+        scale:0.75;
+   }
+   .intro-self-box{
+        margin-left:20px;
+        margin-right:20px;
+   }
+}
+@media (max-width: 400px) {
+    .intro-self-box{
+        width:250px;
+        margin:auto;
+        margin-top:100px;
+    }
+    .image-spacing{
+        scale:0.6;
     }
 }

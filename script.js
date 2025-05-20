@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", function() {
     console.log("Window Height: " + window.innerHeight);
     console.log("Window Width: " + window.innerWidth);
 });
-
+// Cursor effect code, this is a custom cursor that follows the mouse around the screen.
 document.addEventListener('mousemove', function (cursor) {
     // getting the circle div element
     const circle = document.getElementById('cursor-circle');
@@ -92,6 +92,7 @@ function displayNewSection(location){
         getNavigation.style.display = 'none'; // Hide the element after fade-out
     }, 350);
 
+    // Switch their location based on the button clicked
     setTimeout(() => {
         switch(location){
             case "about":

@@ -16,27 +16,35 @@
         <div class="navbar-items">
             <h4>Andy's Portfolio</h4>
             <div class="spacer"></div>
-            <a href="index.html">Return Home</a>
-            <a href="about.html">About</a>
-            <a href="contact.html">Contact Information</a>
+            <a id="index" href="index.html">Return Home</a>
+            <a id="about" href="about.html">About</a>
+            <a id="contact" href="contact.html">Contact Me</a>
         </div>
     </nav>
     <main>
+        <!-- intro section for the projects, provides a general overview of the page and what it is about. -->
         <div class="intro-section">
             <h1><span class="gradient-orange"> My Projects </span></h1>
             <p>This page is dedicated to showing my most recent works that I've created. You can try out these projects by simply clicking the links provided in each section that will redirect you to the GitHub website for it. The projects are NOT fully displayed in order from most recent to oldest so keep that in mind. But they are made within 2024 or 2025 so it doesn't really matter much. </p>
         </div>
+
+        <!-- Main box for the displaying of all my projects. -->
         <div class="project-display-section">
-            <h1 style="margin-bottom: 40px; margin-top:80px;"><span class="gradient-blue"> List of My Projects</span></h1>  <!--too lazy to make a class so inline styling it is.-->
+            <h1 style="margin-bottom: 40px; margin-top:80px; font-size:2.75rem;"><span class="gradient-blue"> List of My Projects</span></h1>  <!--too lazy to make a class so inline styling it is.-->
+            <!-- Each row will be two boxes wide so they'll be placed in a box here -->
             <div class="row">
+                <!-- Left and right classes signify which side the box will have a sliding animation on, -->
                 <div class="project-box left">
                     <div class="text">
+                        <!-- Main description of the project and what is about -->
                         <h2><span class ="project-title">Blitz Clicker</span> - <span class="coding-language">jQuery</span></h2>
                         <p>An endless clicker game that tests your mouse accuracy, reaction time, and speed all at once with multiple difficulties. All logic was coded in jQuery, graphics and styling using both CSS and jQuery.</p>
+                        <!-- link for the user to check out the project and play it. -->
                         <a id="redirect" href="https://andyc780.github.io/jQuery-game/" target="_blank" rel="noopener">Click here to view.</a>
                     </div>
                     <img src="/images/Blitz-Clicker.png" alt="Blitz Cliker Game Image">
                 </div>
+                <!-- Same rule applies for here and every other box continuing on after this. -->
                 <div class="project-box right">
                     <div class="text">
                         <h2><span class ="project-title">Pokefetch</span> - <span class="coding-language">JSON API</span></h2>
@@ -96,6 +104,7 @@
             </div>
         </div>
     </main>
+    <!-- Footer -->
     <footer>
         <p>&copy; 2025 Andy Chen</p>
         <div class="links">

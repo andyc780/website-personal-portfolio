@@ -6,20 +6,28 @@
     <link rel="stylesheet" href="/css/sub-style.css">
     <link rel="stylesheet" href="/css/about.css">
     <title>Andy - About Me</title>
+    <style>
+       
+
+    </style>
 </head>
 <body>
+    <!-- Cursor Effect -->
     <div id="cursor-circle"></div>
+    <!-- Navbar items here -->
     <nav>
         <div class="navbar-items">
             <h4>Andy's Portfolio</h4>
-            <div class="spacer"></div>
-            <a href="index.html">Return Home</a>
-            <a href="projects.html">Projects</a>
-            <a href="contact.html">Contact Information</a>
+            <!-- Spacing between links and main name -->
+            <div class="spacer"></div> 
+            <a id="index"href="index.html">Return Home</a>
+            <a id="projects" href="projects.html">Projects</a>
+            <a id="contact"href="contact.html">Contact Me</a>
         </div>
     </nav>
     
     <main>
+        <!-- Main area for the about me section, including the images and stuff too -->
         <div class="separate-intro">
             <div class="intro-self-box">
                 <h1><span class="gradient-green">About Andy Chen</span></h1>
@@ -27,6 +35,7 @@
                 <br>
                 <p>In my free time, I enjoy cycling, playing video games, hanging out and playing with friends, working out, rock climbing, and always wanting to attempt/learn new things.</p>
             </div>
+            <!-- abuse of divs to make a cool triangle layout effect for my 3 images -->
             <div class="image-spacing">
                 <div class="images-gallery">
                     <img class="rounded" src="/images/portrait.png" alt="Potrait of Andy">
@@ -35,11 +44,15 @@
                 <img class="offset" src="/images/group-photo.jpeg" alt="Group Photo with Friends">
             </div>
         </div>
+
         <h1 class="header-title"><span class="gradient-blue">Time Allocation & Skills </span></h1>
+        
         <div class="charts-1">
+            <!-- Charts displayed here using chart.js -->
             <canvas id="donutChart" width="350" height="350"></canvas>
             <canvas id ="barChart" width="450" height="350"></canvas>
         </div>
+        <!-- Other information such as fun facts and images are being placed here. -->
         <div class="other-information">
             <img class="large-img" src="/images/sunset.jpeg" alt="Photo of Sunset">
             <div class="fun-facts">
@@ -56,7 +69,7 @@
             </div>
         </div>
     </main>
-
+<!-- Footer information here -->
     <footer>
         <p>&copy; 2025 Andy Chen</p>
         <div class="links">
@@ -76,11 +89,11 @@
     setTimeout(() => { // 5s delay
         // creation of the donut chart
         const data1 = {
-            labels: ['Physical Activities', 'Gaming', 'Social Activities', 'Other', "Being Miserable"],
+            labels: ['Physical Activities', 'Gaming', 'Social Activities', 'Other', "Being Miserable"], // What type of data stuff is being displayed
             datasets: [{
                 label: "Time Spent (%)",
-                data: [25, 35, 25, 10, 5],
-                backgroundColor: [
+                data: [25, 35, 25, 10, 5], //Adds up to 100%
+                backgroundColor: [ // Coloring for the charts
                     'rgba(255, 99, 132, 0.9)',
                     'rgba(54, 162, 235, 0.9)',
                     'rgba(255, 206, 86, 0.9)',
@@ -88,19 +101,22 @@
                     'rgba(153, 102, 255, 0.9)'
 
                 ],
-                borderWidth: 0
+                borderWidth: 0 // No border because it is a donut chart and is better for bar charts
             }]
         }
+        // Creation of the donut chart
         const configDonut = {
             type: 'doughnut',
             data: data1,
             options: {
-                responsive: false,
+                responsive: false, // No responsiveness for the chart so it can be styled better and adjusted to needs
                 plugins: {
                     title: {
+                        // Display title for the chart
                         display: true,
                         text: 'Time Spent on Activities',
                         font: {
+                            // Change fonts
                             size: 16,
                             weight: 'bold',
                             family: 'Poppins, sans-serif'
@@ -112,19 +128,20 @@
         const getDonutChart = document.getElementById('donutChart').getContext('2d');
         const myDonutChart = new Chart(getDonutChart, configDonut);
 
+        // Creation of the bar chart
         const data2 = {
-            labels: ["HTML", "CSS", "JavaScript", "jQuery", "Python"],
+            labels: ["HTML", "CSS", "JavaScript", "jQuery", "Python"], // Data for the bar chart
             datasets: [{
-                label: "%", // Set label to empty string to hide it
-                data: [30, 25, 20, 15, 10],
-                backgroundColor: [
+                label: "%", //Percentage of knowledge
+                data: [30, 25, 20, 15, 10], // values that add up to 100%
+                backgroundColor: [ // background colors for the bar chart
                     'rgba(255, 99, 132, 0.9)',
                     'rgba(54, 162, 235, 0.9)',
                     'rgba(255, 206, 86, 0.9)',
                     'rgba(75, 192, 192, 0.9)',
                     'rgba(153, 102, 255, 0.9)'
                 ],
-                borderColor: [
+                borderColor: [ // Add border to each bar to make it look better
                     'rgba(255, 99, 132, 1)',
                     'rgba(54, 162, 235, 1)',
                     'rgba(255, 206, 86, 1)',
@@ -138,15 +155,17 @@
             type: 'bar',
             data: data2,
             options: {
-                responsive: false,
+                responsive: false, // No responsiveness for the chart so it can be styled better and adjusted to needs
                 plugins: {
                     legend: {
                         display: false // Hide legend to remove color box and label
                     },
                     title: {
+                        // Display title for the chart
                         display: true,
                         text: 'Coding Skills',
                         font: {
+                            // Change fonts
                             size: 16,
                             weight: 'bold',
                             family: 'Poppins, sans-serif'
